@@ -19,9 +19,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   BannerAd? _banner;
-  int    _total    = 0;
-  int    _week     = 0;
-  String _lastDate = '–';
+  int    _total      = 0;
+  int    _week       = 0;
+  String _lastDate   = '–';
+  int    _listRefKey = 0;
 
   @override
   void initState() {
@@ -66,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (_) => EntryFormScreen(onSaved: () {
         Navigator.pop(context);
         _loadStats();
+        setState(() => _listRefKey++);
       }),
     );
   }
@@ -156,7 +158,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
         // ── ENTRY LIST ────────────────────────────────────────────────────────
-        Expanded(child: EntryListScreen(onRefresh: _loadStats)),
+        Expanded(child: EntryListScreen(
+          key: ValueKey(_listRefKey), onRefresh: _loadStats)),
       ])),
 
       // ── BOTTOM ACTION BAR ──────────────────────────────────────────────────
