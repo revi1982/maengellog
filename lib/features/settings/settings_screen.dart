@@ -8,15 +8,11 @@ import '../paywall/paywall_screen.dart';
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
-  void _openLegal(
-    BuildContext context,
-    String title,
-    List<LegalSection> sections,
-  ) {
+  void _openLegal(BuildContext context, String title, String legalKey) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => LegalTextScreen(title: title, sections: sections),
+        builder: (_) => LegalTextScreen(title: title, legalKey: legalKey),
       ),
     );
   }
@@ -54,29 +50,18 @@ class SettingsScreen extends StatelessWidget {
             _Tile(
               icon: Icons.info_outline,
               label: l.settingsImpressum,
-              onTap: () => _openLegal(
-                context,
-                l.settingsImpressum,
-                LegalContent.impressum,
-              ),
+              onTap: () => _openLegal(context, l.settingsImpressum, 'impressum'),
             ),
             _Tile(
               icon: Icons.privacy_tip_outlined,
               label: l.settingsDatenschutz,
-              onTap: () => _openLegal(
-                context,
-                l.settingsDatenschutz,
-                LegalContent.datenschutz,
-              ),
+              onTap: () =>
+                  _openLegal(context, l.settingsDatenschutz, 'datenschutz'),
             ),
             _Tile(
               icon: Icons.gavel_outlined,
               label: l.settingsAgb,
-              onTap: () => _openLegal(
-                context,
-                l.settingsAgb,
-                LegalContent.agb,
-              ),
+              onTap: () => _openLegal(context, l.settingsAgb, 'agb'),
             ),
           ]),
           const SizedBox(height: 16),
@@ -88,8 +73,9 @@ class SettingsScreen extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 24),
                 child: Text('${l.settingsVersion} $v ($b)',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12, color: Color(0xFF9090A8))),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontSize: 12, color: Color(0xFF9090A8))),
               );
             },
           ),
@@ -109,19 +95,23 @@ class _Section extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-        child: Text(title, style: const TextStyle(
-          fontSize: 10, fontWeight: FontWeight.w700,
-          letterSpacing: 1.2, color: Color(0xFF9090A8),
-        )),
+        child: Text(title,
+            style: const TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 1.2,
+              color: Color(0xFF9090A8),
+            )),
       ),
       Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: const [BoxShadow(
-            color: Color(0x0F000000), blurRadius: 8, offset: Offset(0, 2),
-          )],
+          boxShadow: const [
+            BoxShadow(
+                color: Color(0x0F000000), blurRadius: 8, offset: Offset(0, 2))
+          ],
         ),
         child: Column(children: children),
       ),
@@ -134,14 +124,19 @@ class _Tile extends StatelessWidget {
   final Color? iconColor;
   final String label;
   final VoidCallback onTap;
-  const _Tile({required this.icon, this.iconColor, required this.label, required this.onTap});
+  const _Tile(
+      {required this.icon,
+      this.iconColor,
+      required this.label,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final clr = iconColor ?? const Color(0xFF9090A8);
     return ListTile(
       leading: Container(
-        width: 36, height: 36,
+        width: 36,
+        height: 36,
         decoration: BoxDecoration(
           color: clr.withValues(alpha: 0.10),
           borderRadius: BorderRadius.circular(10),
@@ -149,8 +144,10 @@ class _Tile extends StatelessWidget {
         child: Icon(icon, size: 18, color: clr),
       ),
       title: Text(label,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-      trailing: const Icon(Icons.chevron_right, color: Color(0xFF9090A8), size: 18),
+          style:
+              const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+      trailing: const Icon(Icons.chevron_right,
+          color: Color(0xFF9090A8), size: 18),
       onTap: onTap,
     );
   }
