@@ -9,8 +9,8 @@ import 'core/theme/app_theme.dart';
 import 'core/config/app_config.dart';
 
 import 'l10n/app_localizations.dart';
+import 'features/onboarding/onboarding_screen.dart';
 // Diese Imports werden in späteren Prompts einkommentiert:
-// import 'features/onboarding/onboarding_screen.dart';     // Prompt 4
 // import 'features/home/home_screen.dart';                 // Prompt 5
 // import 'core/services/ad_service.dart';                  // Prompt 5
 // import 'core/services/billing_service.dart';             // Prompt 6
@@ -63,32 +63,13 @@ class MyApp extends StatelessWidget {
         Locale('uk'), Locale('ar'), Locale('zh'), Locale('ja'), Locale('ko'),
         Locale('hi'), Locale('id'), Locale('th'),
       ],
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4F5FA),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 64, height: 64,
-                decoration: BoxDecoration(
-                  color: const Color(AppConfig.primaryColorValue),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Icon(AppConfig.appIcon, color: Colors.white, size: 30),
-              ),
-              const SizedBox(height: 16),
-              const Text(AppConfig.appName,
-                  style: TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.w800,
-                      color: Color(0xFF111122))),
-              const SizedBox(height: 8),
-              const Text('Fundament OK ✓',
-                  style: TextStyle(color: Color(0xFF9090A8))),
-            ],
-          ),
-        ),
-      ),
+      home: onboardingDone
+          ? const Scaffold(
+              backgroundColor: Color(0xFFF4F5FA),
+              body: Center(child: Text('Home — Prompt 5',
+                  style: TextStyle(color: Color(0xFF9090A8)))),
+            )
+          : const OnboardingScreen(),
     );
   }
 }
