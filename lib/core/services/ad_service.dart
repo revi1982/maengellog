@@ -5,15 +5,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../config/app_config.dart';
 
 class AdService {
-  static const _rewardKey = 'reward_banner_hidden_until';
+  static const _rewardKey   = 'reward_banner_hidden_until';
+  static const _rewardHours = 2;
 
   static bool _isPremium   = false;
   static bool get isPremium => _isPremium;
 
-  static BannerAd? _banner;
-  static bool      _bannerLoaded = false;
-  static RewardedAd? _rewarded;
+  static BannerAd?               _banner;
+  static bool                    _bannerLoaded = false;
+  static RewardedAd?             _rewarded;
+  static RewardedInterstitialAd? _rewardedInterstitial;
+  static AppOpenAd?              _appOpenAd;
+  static bool                    _appOpenShowing = false;
 
+  // ── Premium ────────────────────────────────────────────────────────────────
   static Future<void> initPremiumStatus() async {
     final prefs = await SharedPreferences.getInstance();
     _isPremium  = prefs.getBool('is_premium') ?? false;
@@ -21,8 +26,31 @@ class AdService {
 
   static void setPremium(bool value) { _isPremium = value; }
 
-  // ── Banner ────────────────────────────────────────────────────────────────
+  // ── UMP Consent ────────────────────────────────────────────────────────────
+  static void requestConsentIfNeeded() {
+    try {
+      ConsentInformation.instance.requestConsentInfoUpdate(
+        ConsentRequestParameters(),
+        () async {
+          try {
+            if (await ConsentInformation.instance.isConsentFormAvailable()) {
+              ConsentForm.loadConsentForm(
+                (form) => form.show((_) {}),
+                (error) => debugPrint('UMP form load error: ${error.message}'),
+              );
+            }
+          } catch (_) {}
+        },
+        (FormError error) {
+          debugPrint('UMP error: ${error.message}');
+        },
+      );
+    } catch (e) {
+      debugPrint('UMP not available: $e');
+    }
+  }
 
+  // ── Banner ─────────────────────────────────────────────────────────────────
   static Future<bool> isBannerHiddenByReward() async {
     final prefs = await SharedPreferences.getInstance();
     final until = prefs.getInt(_rewardKey) ?? 0;
@@ -54,8 +82,7 @@ class AdService {
     _bannerLoaded = false;
   }
 
-  // ── Rewarded ──────────────────────────────────────────────────────────────
-
+  // ── Rewarded ───────────────────────────────────────────────────────────────
   static Future<void> loadRewarded() async {
     if (_isPremium) return;
     await RewardedAd.load(
@@ -99,8 +126,80 @@ class AdService {
   static Future<void> applyBannerHideReward() async {
     final prefs = await SharedPreferences.getInstance();
     final until = DateTime.now()
-        .add(const Duration(hours: 24))
+        .add(const Duration(hours: _rewardHours))
         .millisecondsSinceEpoch;
     await prefs.setInt(_rewardKey, until);
+  }
+
+  // ── Rewarded Interstitial ──────────────────────────────────────────────────
+  static Future<void> loadRewardedInterstitial() async {
+    if (_isPremium) return;
+    await RewardedInterstitialAd.load(
+      adUnitId: AppConfig.admobRewardedInterstitialId,
+      request: const AdRequest(),
+      rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
+        onAdLoaded:       (ad)  => _rewardedInterstitial = ad,
+        onAdFailedToLoad: (err) {
+          _rewardedInterstitial = null;
+          debugPrint('RewardedInterstitial failed: $err');
+        },
+      ),
+    );
+  }
+
+  static bool get isRewardedInterstitialReady => _rewardedInterstitial != null;
+
+  static Future<void> showRewardedInterstitial({
+    required VoidCallback onRewarded,
+  }) async {
+    if (_isPremium || _rewardedInterstitial == null) return;
+    _rewardedInterstitial!.fullScreenContentCallback = FullScreenContentCallback(
+      onAdDismissedFullScreenContent: (ad) {
+        ad.dispose(); _rewardedInterstitial = null;
+        loadRewardedInterstitial();
+      },
+      onAdFailedToShowFullScreenContent: (ad, _) {
+        ad.dispose(); _rewardedInterstitial = null;
+      },
+    );
+    await _rewardedInterstitial!.show(
+      onUserEarnedReward: (ad, reward) => onRewarded(),
+    );
+  }
+
+  // ── App Open ───────────────────────────────────────────────────────────────
+  static Future<void> loadAppOpen() async {
+    if (_isPremium) return;
+    await AppOpenAd.load(
+      adUnitId: AppConfig.admobAppOpenId,
+      request: const AdRequest(),
+      orientation: AppOpenAd.orientationPortrait,
+      adLoadCallback: AppOpenAdLoadCallback(
+        onAdLoaded:       (ad)  => _appOpenAd = ad,
+        onAdFailedToLoad: (err) {
+          _appOpenAd = null;
+          debugPrint('AppOpen failed: $err');
+        },
+      ),
+    );
+  }
+
+  static bool get isAppOpenReady => _appOpenAd != null && !_appOpenShowing;
+
+  static void showAppOpenIfAvailable() {
+    if (_isPremium || _appOpenAd == null || _appOpenShowing) return;
+    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
+      onAdShowedFullScreenContent: (_) => _appOpenShowing = true,
+      onAdDismissedFullScreenContent: (ad) {
+        _appOpenShowing = false;
+        ad.dispose(); _appOpenAd = null;
+        loadAppOpen();
+      },
+      onAdFailedToShowFullScreenContent: (ad, _) {
+        _appOpenShowing = false;
+        ad.dispose(); _appOpenAd = null;
+      },
+    );
+    _appOpenAd!.show();
   }
 }

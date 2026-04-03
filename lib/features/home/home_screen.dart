@@ -96,8 +96,19 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
       builder: (_) => EntryFormScreen(onSaved: () {
         Navigator.pop(context);
-        _loadStats();
-        setState(() => _listRefKey++);
+        _loadStats().then((_) {
+          if (!mounted) return;
+          setState(() => _listRefKey++);
+          if (_total > 0 && _total % 5 == 0 && !AdService.isPremium) {
+            Future.delayed(const Duration(milliseconds: 600), () {
+              if (!mounted) return;
+              AdService.showRewardedInterstitial(onRewarded: () async {
+                await AdService.applyBannerHideReward();
+                if (mounted) setState(() => _banner = null);
+              });
+            });
+          }
+        });
       }),
     );
   }

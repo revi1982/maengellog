@@ -7,7 +7,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'core/theme/app_theme.dart';
 import 'core/config/app_config.dart';
-
 import 'l10n/app_localizations.dart';
 import 'features/onboarding/onboarding_screen.dart';
 import 'features/home/home_screen.dart';
@@ -19,6 +18,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  AdService.requestConsentIfNeeded();
   await MobileAds.instance.initialize();
   tz.initializeTimeZones();
 
@@ -40,9 +40,39 @@ Future<void> main() async {
   runApp(MyApp(onboardingDone: onboardingDone));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final bool onboardingDone;
   const MyApp({super.key, required this.onboardingDone});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  bool _firstResume = true;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    if (widget.onboardingDone && !AdService.isPremium) {
+      AdService.loadAppOpen();
+      AdService.loadRewardedInterstitial();
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      if (_firstResume) { _firstResume = false; return; }
+      AdService.showAppOpenIfAvailable();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +95,7 @@ class MyApp extends StatelessWidget {
         Locale('uk'), Locale('ar'), Locale('zh'), Locale('ja'), Locale('ko'),
         Locale('hi'), Locale('id'), Locale('th'),
       ],
-      home: onboardingDone ? const HomeScreen() : const OnboardingScreen(),
+      home: widget.onboardingDone ? const HomeScreen() : const OnboardingScreen(),
     );
   }
 }

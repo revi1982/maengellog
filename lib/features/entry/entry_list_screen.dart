@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../core/config/app_config.dart';
 import '../../core/database/database_helper.dart';
+import '../../core/services/ad_service.dart';
 import '../../l10n/app_localizations.dart';
 import 'entry_detail_screen.dart';
 
@@ -14,14 +16,44 @@ class EntryListScreen extends StatefulWidget {
 
 class _EntryListScreenState extends State<EntryListScreen> {
   List<Map<String, dynamic>> _entries = [];
+  NativeAd? _nativeAd;
+  bool      _nativeAdLoaded = false;
 
   @override
-  void initState() { super.initState(); _load(); }
+  void initState() { super.initState(); _load(); _loadNativeAd(); }
+
+  @override
+  void dispose() { _nativeAd?.dispose(); super.dispose(); }
 
   Future<void> _load() async {
     final entries = await DatabaseHelper.instance.getAllEntries();
     if (mounted) setState(() => _entries = entries);
   }
+
+  Future<void> _loadNativeAd() async {
+    if (AdService.isPremium) return;
+    final ad = NativeAd(
+      adUnitId: AppConfig.admobNativeId,
+      factoryId: 'listTile',
+      listener: NativeAdListener(
+        onAdLoaded: (_) {
+          if (mounted) setState(() => _nativeAdLoaded = true);
+        },
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+          if (mounted) setState(() => _nativeAdLoaded = false);
+          debugPrint('Native ad failed: $error');
+        },
+      ),
+      request: const AdRequest(),
+    );
+    await ad.load();
+    if (mounted) setState(() => _nativeAd = ad);
+  }
+
+  bool get _showNativeAd =>
+      _nativeAdLoaded && _nativeAd != null &&
+      !AdService.isPremium && _entries.length >= 4;
 
   String _title(Map<String, dynamic> e) {
     final cat  = e['category']    as String?;
@@ -68,6 +100,9 @@ class _EntryListScreenState extends State<EntryListScreen> {
       );
     }
 
+    // Native ad is inserted at position 4 (after 4th entry)
+    final totalItems = _entries.length + (_showNativeAd ? 1 : 0);
+
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
@@ -81,11 +116,31 @@ class _EntryListScreenState extends State<EntryListScreen> {
           onRefresh: () async { await _load(); widget.onRefresh?.call(); },
           child: ListView.builder(
             padding: const EdgeInsets.only(bottom: 100),
-            itemCount: _entries.length,
-            itemBuilder: (_, i) {
-              final e      = _entries[i];
-              final isEven = i.isEven;
-              final iconBg = isEven
+            itemCount: totalItems,
+            itemBuilder: (ctx, i) {
+              // Native ad at position 4
+              if (_showNativeAd && i == 4) {
+                return Container(
+                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: const [BoxShadow(
+                      color: Color(0x08000000), blurRadius: 4, offset: Offset(0, 1),
+                    )],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: AdWidget(ad: _nativeAd!),
+                  ),
+                );
+              }
+
+              final entryIndex = (_showNativeAd && i > 4) ? i - 1 : i;
+              final e      = _entries[entryIndex];
+              final isEven = entryIndex.isEven;
+              final iconBg  = isEven
                   ? primary.withValues(alpha: 0.10)
                   : accent.withValues(alpha: 0.12);
               final iconClr = isEven ? primary : accent;
