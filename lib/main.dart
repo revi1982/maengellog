@@ -12,8 +12,7 @@ import 'l10n/app_localizations.dart';
 import 'features/onboarding/onboarding_screen.dart';
 import 'features/home/home_screen.dart';
 import 'core/services/ad_service.dart';
-// Diese Imports werden in späteren Prompts einkommentiert:
-// import 'core/services/billing_service.dart';             // Prompt 6
+import 'core/services/billing_service.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -33,6 +32,7 @@ Future<void> main() async {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   await AdService.initPremiumStatus();
+  await BillingService.instance.initialize();
 
   final prefs          = await SharedPreferences.getInstance();
   final onboardingDone = prefs.getBool('onboarding_done') ?? false;

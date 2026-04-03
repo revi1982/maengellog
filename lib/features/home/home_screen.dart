@@ -4,8 +4,11 @@ import '../../core/config/app_config.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/services/ad_service.dart';
 import '../../l10n/app_localizations.dart';
+import '../../core/services/billing_service.dart';
+import '../../core/services/pdf_service.dart';
 import '../entry/entry_form_screen.dart';
 import '../entry/entry_list_screen.dart';
+import '../paywall/paywall_screen.dart';
 import '../settings/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -97,9 +100,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ]),
             const Spacer(),
-            // Download-Button: Logik kommt in Prompt 6
-            _HBtn(icon: Icons.download_outlined, onTap: () {
-              // TODO Prompt 6: PDF-Export + Paywall
+            _HBtn(icon: Icons.download_outlined, onTap: () async {
+              if (!BillingService.instance.isPremium) {
+                await AdService.showInterstitial();
+                if (context.mounted) {
+                  await Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const PaywallScreen()));
+                }
+                return;
+              }
+              final entries = await DatabaseHelper.instance.getAllEntries();
+              await PdfService.exportAndShare(entries: entries);
             }),
             const SizedBox(width: 8),
             _HBtn(icon: Icons.settings_outlined, onTap: () =>

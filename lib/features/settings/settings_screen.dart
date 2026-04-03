@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../core/config/app_config.dart';
+import '../../core/services/billing_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../legal/legal_screen.dart';
-// TODO Prompt 6: import PaywallScreen
+import '../paywall/paywall_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -31,13 +32,14 @@ class SettingsScreen extends StatelessWidget {
               icon: Icons.star_outline,
               iconColor: primary,
               label: l.settingsPurchase,
-              onTap: () {/* TODO Prompt 6: Paywall öffnen */},
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const PaywallScreen())),
             ),
             _Tile(
               icon: Icons.restore,
               iconColor: primary,
               label: l.settingsRestore,
-              onTap: () {/* TODO Prompt 6: Restore */},
+              onTap: () => BillingService.instance.restore(),
             ),
           ]),
           const SizedBox(height: 16),
