@@ -1,0 +1,30 @@
+{
+  "package_name": "de.reivi.maengellog",
+  "default_language": "de-DE",
+  "category": "TOOLS",
+  "content_rating": "EVERYONE",
+  "contact_email": "revi@online.de",
+  "contact_website": "https://reivi.de",
+  "privacy_policy_url": "https://reivi.de/datenschutz",
+  "in_app_product": {
+    "product_id": "maengellog_pdf_lifetime",
+    "type": "one_time",
+    "note": "MANUELL in Play Console anlegen nach APK-Test"
+  },
+  "admob": {
+    "mode": "test",
+    "note": "Echte IDs nach Go-Live eintragen"
+  },
+  "listings": {
+    "de-DE": {
+      "title": "MängelLog: Übergabeprotokoll",
+      "short_description": "Kaution sichern: Fotos, Mängel & Zeitstempel. 100% offline, kein Abo.",
+      "full_description": "Kaution verloren weil Mängel beim Einzug nicht dokumentiert wurden? Das passiert täglich tausenden Mietern.\n\nMängelLog hilft dir, Schäden und Mängel lückenlos festzuhalten – mit Foto, Zeitstempel, Zählerstand und Raumangabe. Alles strukturiert dokumentiert, für den Ernstfall vorbereitet.\n\n🔧 KOSTENLOS NUTZBAR:\n• Unbegrenzte Mängeleinträge\n• Foto direkt aus der Kamera\n• Automatischer Zeitstempel\n• Zählerstand (Strom, Gas, Wasser)\n• Schlüsselprotokoll\n• Zeugen dokumentieren\n• 100% offline – kein Account, keine Cloud\n• 33 Sprachen\n\n📄 PREMIUM (Einmalzahlung):\n• Professionelles PDF-Übergabeprotokoll auf Knopfdruck\n• Alle Werbung entfernt\n• Kein Abo – einmal zahlen, für immer nutzen\n\n🔒 DATENSCHUTZ:\nAlle Daten bleiben ausschließlich auf deinem Gerät. Keine Anmeldung, keine Cloud, keine Datenweitergabe.\n\nEntwickelt von Viktor Reinik | reivi.de"
+    },
+    "en-US": {
+      "title": "DefectLog: Handover Protocol",
+      "short_description": "Protect your deposit: photos, defects & timestamps. 100% offline, no subscription.",
+      "full_description": "Lost your deposit because defects weren't documented at move-in? This happens to thousands of tenants every day.\n\nDefectLog helps you document defects comprehensively – with photos, timestamps, meter readings and room details. Everything structured and recorded, ready for when you need it.\n\n🔧 FREE TO USE:\n• Unlimited defect entries\n• Photos directly from camera\n• Automatic timestamps\n• Meter readings (electricity, gas, water)\n• Key handover protocol\n• Witness documentation\n• 100% offline – no account, no cloud\n• 33 languages\n\n📄 PREMIUM (one-time purchase):\n• Professional PDF handover report at the tap of a button\n• All ads removed\n• No subscription – pay once, use forever\n\n🔒 PRIVACY:\nAll data stays exclusively on your device. No registration, no cloud, no data sharing.\n\nDeveloped by Viktor Reinik | reivi.de"
+    }
+  }
+}
