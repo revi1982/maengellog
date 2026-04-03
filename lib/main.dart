@@ -10,9 +10,9 @@ import 'core/config/app_config.dart';
 
 import 'l10n/app_localizations.dart';
 import 'features/onboarding/onboarding_screen.dart';
+import 'features/home/home_screen.dart';
+import 'core/services/ad_service.dart';
 // Diese Imports werden in späteren Prompts einkommentiert:
-// import 'features/home/home_screen.dart';                 // Prompt 5
-// import 'core/services/ad_service.dart';                  // Prompt 5
 // import 'core/services/billing_service.dart';             // Prompt 6
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -31,6 +31,8 @@ Future<void> main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
+  await AdService.initPremiumStatus();
 
   final prefs          = await SharedPreferences.getInstance();
   final onboardingDone = prefs.getBool('onboarding_done') ?? false;
@@ -63,13 +65,7 @@ class MyApp extends StatelessWidget {
         Locale('uk'), Locale('ar'), Locale('zh'), Locale('ja'), Locale('ko'),
         Locale('hi'), Locale('id'), Locale('th'),
       ],
-      home: onboardingDone
-          ? const Scaffold(
-              backgroundColor: Color(0xFFF4F5FA),
-              body: Center(child: Text('Home — Prompt 5',
-                  style: TextStyle(color: Color(0xFF9090A8)))),
-            )
-          : const OnboardingScreen(),
+      home: onboardingDone ? const HomeScreen() : const OnboardingScreen(),
     );
   }
 }
