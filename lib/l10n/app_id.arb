@@ -91,5 +91,8 @@
   "pdfPage": "Halaman",
   "pdfOf": "dari",
   "errorGeneral": "Terjadi Kesalahan",
-  "errorTryAgain": "Coba Lagi"
+  "errorTryAgain": "Coba Lagi",
+  "adRewardButton": "Tonton iklan",
+  "adRewardSuccess": "Banner disembunyikan 24 jam.",
+  "adRewardNotAvailable": "Tidak ada iklan tersedia."
 }

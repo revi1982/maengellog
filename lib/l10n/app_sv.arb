@@ -107,5 +107,8 @@
   "pdfOf": "av",
 
   "errorGeneral": "Något gick fel.",
-  "errorTryAgain": "Försök igen"
+  "errorTryAgain": "Försök igen",
+  "adRewardButton": "Se annons",
+  "adRewardSuccess": "Banner dold i 24 t.",
+  "adRewardNotAvailable": "Ingen annons tillgänglig."
 }

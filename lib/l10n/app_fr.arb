@@ -91,5 +91,8 @@
   "pdfPage": "Page",
   "pdfOf": "sur",
   "errorGeneral": "Une erreur s'est produite.",
-  "errorTryAgain": "Réessayer"
+  "errorTryAgain": "Réessayer",
+  "adRewardButton": "Voir la pub",
+  "adRewardSuccess": "Bannière masquée 24 h.",
+  "adRewardNotAvailable": "Aucune publicité disponible."
 }

@@ -291,4 +291,13 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Prøv igjen';
+
+  @override
+  String get adRewardButton => 'Se annonse';
+
+  @override
+  String get adRewardSuccess => 'Banner skjult i 24 t.';
+
+  @override
+  String get adRewardNotAvailable => 'Ingen annonse tilgjengelig.';
 }

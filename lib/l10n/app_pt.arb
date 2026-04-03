@@ -91,5 +91,8 @@
   "pdfPage": "Página",
   "pdfOf": "de",
   "errorGeneral": "Algo deu errado.",
-  "errorTryAgain": "Tentar novamente"
+  "errorTryAgain": "Tentar novamente",
+  "adRewardButton": "Assistir anúncio",
+  "adRewardSuccess": "Banner ocultado por 24 h.",
+  "adRewardNotAvailable": "Nenhum anúncio disponível."
 }

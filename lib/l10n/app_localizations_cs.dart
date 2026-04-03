@@ -289,4 +289,13 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Zkuste to znovu';
+
+  @override
+  String get adRewardButton => 'Sledovat reklamu';
+
+  @override
+  String get adRewardSuccess => 'Banner skryt na 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Žádná reklama není k dispozici.';
 }

@@ -107,5 +107,8 @@
   "pdfOf": "από",
 
   "errorGeneral": "Κάτι πήγε στραβά.",
-  "errorTryAgain": "Δοκιμάστε ξανά"
+  "errorTryAgain": "Δοκιμάστε ξανά",
+  "adRewardButton": "Δες τη διαφήμιση",
+  "adRewardSuccess": "Το banner αποκρύφτηκε για 24 ώρες.",
+  "adRewardNotAvailable": "Δεν υπάρχει διαθέσιμη διαφήμιση."
 }

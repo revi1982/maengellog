@@ -292,4 +292,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Próbálja újra';
+
+  @override
+  String get adRewardButton => 'Hirdetés megtekintése';
+
+  @override
+  String get adRewardSuccess => 'A banner 24 órára rejtve.';
+
+  @override
+  String get adRewardNotAvailable => 'Nincs elérhető hirdetés.';
 }

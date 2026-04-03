@@ -291,4 +291,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Δοκιμάστε ξανά';
+
+  @override
+  String get adRewardButton => 'Δες τη διαφήμιση';
+
+  @override
+  String get adRewardSuccess => 'Το banner αποκρύφτηκε για 24 ώρες.';
+
+  @override
+  String get adRewardNotAvailable => 'Δεν υπάρχει διαθέσιμη διαφήμιση.';
 }

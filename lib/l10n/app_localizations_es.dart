@@ -290,4 +290,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Intentar de nuevo';
+
+  @override
+  String get adRewardButton => 'Ver anuncio';
+
+  @override
+  String get adRewardSuccess => 'Banner ocultado 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'No hay anuncio disponible.';
 }

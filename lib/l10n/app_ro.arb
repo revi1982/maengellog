@@ -91,5 +91,8 @@
   "pdfPage": "Pagina",
   "pdfOf": "din",
   "errorGeneral": "A apărut o eroare",
-  "errorTryAgain": "Încercați din nou"
+  "errorTryAgain": "Încercați din nou",
+  "adRewardButton": "Vizionează reclama",
+  "adRewardSuccess": "Banner ascuns 24 h.",
+  "adRewardNotAvailable": "Nicio reclamă disponibilă."
 }

@@ -91,5 +91,8 @@
   "pdfPage": "Strana",
   "pdfOf": "z",
   "errorGeneral": "Nastala chyba",
-  "errorTryAgain": "Skúste to znova"
+  "errorTryAgain": "Skúste to znova",
+  "adRewardButton": "Pozrieť reklamu",
+  "adRewardSuccess": "Banner skrytý na 24 h.",
+  "adRewardNotAvailable": "Žiadna reklama nie je k dispozícii."
 }

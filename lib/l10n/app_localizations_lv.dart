@@ -291,4 +291,13 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Mēģināt vēlreiz';
+
+  @override
+  String get adRewardButton => 'Skatīties reklāmu';
+
+  @override
+  String get adRewardSuccess => 'Baneris paslēpts 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Nav pieejamas reklāmas.';
 }

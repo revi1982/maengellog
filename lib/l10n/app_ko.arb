@@ -91,5 +91,8 @@
   "pdfPage": "페이지",
   "pdfOf": "/",
   "errorGeneral": "오류가 발생했습니다",
-  "errorTryAgain": "다시 시도"
+  "errorTryAgain": "다시 시도",
+  "adRewardButton": "광고 보기",
+  "adRewardSuccess": "배너 24시간 숨김.",
+  "adRewardNotAvailable": "광고 없음."
 }

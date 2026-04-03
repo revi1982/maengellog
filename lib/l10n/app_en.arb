@@ -91,5 +91,8 @@
   "pdfPage": "Page",
   "pdfOf": "of",
   "errorGeneral": "Something went wrong.",
-  "errorTryAgain": "Try again"
+  "errorTryAgain": "Try again",
+  "adRewardButton": "Watch ad",
+  "adRewardSuccess": "Banner hidden for 24h.",
+  "adRewardNotAvailable": "No ad available."
 }

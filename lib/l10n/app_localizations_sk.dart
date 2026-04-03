@@ -291,4 +291,13 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Skúste to znova';
+
+  @override
+  String get adRewardButton => 'Pozrieť reklamu';
+
+  @override
+  String get adRewardSuccess => 'Banner skrytý na 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Žiadna reklama nie je k dispozícii.';
 }

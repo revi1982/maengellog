@@ -289,4 +289,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Попробовать снова';
+
+  @override
+  String get adRewardButton => 'Смотреть рекламу';
+
+  @override
+  String get adRewardSuccess => 'Баннер скрыт на 24 ч.';
+
+  @override
+  String get adRewardNotAvailable => 'Реклама недоступна.';
 }

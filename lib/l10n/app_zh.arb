@@ -91,5 +91,8 @@
   "pdfPage": "第",
   "pdfOf": "页，共",
   "errorGeneral": "发生错误",
-  "errorTryAgain": "重试"
+  "errorTryAgain": "重试",
+  "adRewardButton": "看广告",
+  "adRewardSuccess": "横幅已隐藏24小时。",
+  "adRewardNotAvailable": "暂无广告。"
 }

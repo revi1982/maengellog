@@ -287,4 +287,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'पुनः प्रयास करें';
+
+  @override
+  String get adRewardButton => 'विज्ञापन देखें';
+
+  @override
+  String get adRewardSuccess => 'बैनर 24 घंटे छिपाया गया।';
+
+  @override
+  String get adRewardNotAvailable => 'कोई विज्ञापन उपलब्ध नहीं।';
 }

@@ -91,5 +91,8 @@
   "pdfPage": "Pagina",
   "pdfOf": "di",
   "errorGeneral": "Qualcosa è andato storto.",
-  "errorTryAgain": "Riprova"
+  "errorTryAgain": "Riprova",
+  "adRewardButton": "Guarda pubblicità",
+  "adRewardSuccess": "Banner nascosto per 24 h.",
+  "adRewardNotAvailable": "Nessuna pubblicità disponibile."
 }

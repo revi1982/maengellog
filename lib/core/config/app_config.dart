@@ -12,7 +12,7 @@ class AppConfig {
   static const String productId           = 'maengellog_pdf_lifetime';
   static const String admobAppId          = 'ca-app-pub-3940256099942544~3347511713';
   static const String admobBannerId       = 'ca-app-pub-3940256099942544/6300978111';
-  static const String admobInterstitialId = 'ca-app-pub-3940256099942544/1033173712';
+  static const String admobRewardedId     = 'ca-app-pub-3940256099942544/5224354917';
   static const String impressumUrl        = 'https://reivi.de/impressum?app=true';
   static const String datenschutzUrl      = 'https://reivi.de/datenschutz?app=true';
   static const String agbUrl              = 'https://reivi.de/agb?app=true';

@@ -283,4 +283,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get errorTryAgain => '再試行';
+
+  @override
+  String get adRewardButton => '広告を見る';
+
+  @override
+  String get adRewardSuccess => 'バナーを24時間非表示。';
+
+  @override
+  String get adRewardNotAvailable => '広告がありません。';
 }

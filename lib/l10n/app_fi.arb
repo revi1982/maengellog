@@ -107,5 +107,8 @@
   "pdfOf": "/",
 
   "errorGeneral": "Jokin meni pieleen.",
-  "errorTryAgain": "Yritä uudelleen"
+  "errorTryAgain": "Yritä uudelleen",
+  "adRewardButton": "Katso mainos",
+  "adRewardSuccess": "Banneri piilotettu 24 h.",
+  "adRewardNotAvailable": "Ei mainosta saatavilla."
 }

@@ -91,5 +91,8 @@
   "pdfPage": "Страница",
   "pdfOf": "от",
   "errorGeneral": "Възникна грешка",
-  "errorTryAgain": "Опитайте отново"
+  "errorTryAgain": "Опитайте отново",
+  "adRewardButton": "Гледай реклама",
+  "adRewardSuccess": "Банерът е скрит за 24 ч.",
+  "adRewardNotAvailable": "Няма налична реклама."
 }

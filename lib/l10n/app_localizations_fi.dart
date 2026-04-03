@@ -291,4 +291,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Yritä uudelleen';
+
+  @override
+  String get adRewardButton => 'Katso mainos';
+
+  @override
+  String get adRewardSuccess => 'Banneri piilotettu 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Ei mainosta saatavilla.';
 }

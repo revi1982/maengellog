@@ -290,4 +290,13 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Prøv igen';
+
+  @override
+  String get adRewardButton => 'Se reklame';
+
+  @override
+  String get adRewardSuccess => 'Banner skjult i 24 t.';
+
+  @override
+  String get adRewardNotAvailable => 'Ingen reklame tilgængelig.';
 }

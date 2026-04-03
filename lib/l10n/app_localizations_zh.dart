@@ -283,4 +283,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get errorTryAgain => '重试';
+
+  @override
+  String get adRewardButton => '看广告';
+
+  @override
+  String get adRewardSuccess => '横幅已隐藏24小时。';
+
+  @override
+  String get adRewardNotAvailable => '暂无广告。';
 }

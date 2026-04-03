@@ -288,4 +288,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Coba Lagi';
+
+  @override
+  String get adRewardButton => 'Tonton iklan';
+
+  @override
+  String get adRewardSuccess => 'Banner disembunyikan 24 jam.';
+
+  @override
+  String get adRewardNotAvailable => 'Tidak ada iklan tersedia.';
 }

@@ -711,6 +711,24 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Erneut versuchen'**
   String get errorTryAgain;
+
+  /// No description provided for @adRewardButton.
+  ///
+  /// In de, this message translates to:
+  /// **'Werbung ansehen'**
+  String get adRewardButton;
+
+  /// No description provided for @adRewardSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Banner 24h ausgeblendet.'**
+  String get adRewardSuccess;
+
+  /// No description provided for @adRewardNotAvailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Werbung verfügbar.'**
+  String get adRewardNotAvailable;
 }
 
 class _AppLocalizationsDelegate

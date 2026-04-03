@@ -107,5 +107,8 @@
   "pdfOf": "av",
 
   "errorGeneral": "Noe gikk galt.",
-  "errorTryAgain": "Prøv igjen"
+  "errorTryAgain": "Prøv igjen",
+  "adRewardButton": "Se annonse",
+  "adRewardSuccess": "Banner skjult i 24 t.",
+  "adRewardNotAvailable": "Ingen annonse tilgjengelig."
 }

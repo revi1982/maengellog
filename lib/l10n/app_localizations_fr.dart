@@ -292,4 +292,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Réessayer';
+
+  @override
+  String get adRewardButton => 'Voir la pub';
+
+  @override
+  String get adRewardSuccess => 'Bannière masquée 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Aucune publicité disponible.';
 }

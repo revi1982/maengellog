@@ -91,5 +91,8 @@
   "pdfPage": "Sayfa",
   "pdfOf": "/",
   "errorGeneral": "Bir şeyler ters gitti.",
-  "errorTryAgain": "Tekrar dene"
+  "errorTryAgain": "Tekrar dene",
+  "adRewardButton": "Reklam izle",
+  "adRewardSuccess": "Afiş 24 saat gizlendi.",
+  "adRewardNotAvailable": "Reklam mevcut değil."
 }

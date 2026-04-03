@@ -91,5 +91,8 @@
   "pdfPage": "Oldal",
   "pdfOf": "/",
   "errorGeneral": "Hiba történt",
-  "errorTryAgain": "Próbálja újra"
+  "errorTryAgain": "Próbálja újra",
+  "adRewardButton": "Hirdetés megtekintése",
+  "adRewardSuccess": "A banner 24 órára rejtve.",
+  "adRewardNotAvailable": "Nincs elérhető hirdetés."
 }

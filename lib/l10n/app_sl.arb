@@ -91,5 +91,8 @@
   "pdfPage": "Stran",
   "pdfOf": "od",
   "errorGeneral": "Prišlo je do napake",
-  "errorTryAgain": "Poskusite znova"
+  "errorTryAgain": "Poskusite znova",
+  "adRewardButton": "Oglej si oglas",
+  "adRewardSuccess": "Pasica skrita za 24 ur.",
+  "adRewardNotAvailable": "Ni razpoložljivega oglasa."
 }

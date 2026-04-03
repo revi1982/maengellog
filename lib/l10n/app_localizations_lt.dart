@@ -290,4 +290,13 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Bandyti dar kartą';
+
+  @override
+  String get adRewardButton => 'Žiūrėti reklamą';
+
+  @override
+  String get adRewardSuccess => 'Reklamjuostė paslėpta 24 val.';
+
+  @override
+  String get adRewardNotAvailable => 'Nėra galimos reklamos.';
 }

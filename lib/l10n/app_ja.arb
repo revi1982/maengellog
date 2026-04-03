@@ -91,5 +91,8 @@
   "pdfPage": "ページ",
   "pdfOf": "/",
   "errorGeneral": "エラーが発生しました",
-  "errorTryAgain": "再試行"
+  "errorTryAgain": "再試行",
+  "adRewardButton": "広告を見る",
+  "adRewardSuccess": "バナーを24時間非表示。",
+  "adRewardNotAvailable": "広告がありません。"
 }

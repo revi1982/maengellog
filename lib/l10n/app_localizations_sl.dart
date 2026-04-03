@@ -289,4 +289,13 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Poskusite znova';
+
+  @override
+  String get adRewardButton => 'Oglej si oglas';
+
+  @override
+  String get adRewardSuccess => 'Pasica skrita za 24 ur.';
+
+  @override
+  String get adRewardNotAvailable => 'Ni razpoložljivega oglasa.';
 }

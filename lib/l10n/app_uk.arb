@@ -91,5 +91,8 @@
   "pdfPage": "Сторінка",
   "pdfOf": "з",
   "errorGeneral": "Виникла помилка",
-  "errorTryAgain": "Спробувати знову"
+  "errorTryAgain": "Спробувати знову",
+  "adRewardButton": "Переглянути рекламу",
+  "adRewardSuccess": "Банер прихований на 24 год.",
+  "adRewardNotAvailable": "Реклама недоступна."
 }

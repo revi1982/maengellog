@@ -289,4 +289,13 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Pokušajte ponovo';
+
+  @override
+  String get adRewardButton => 'Pogledaj oglas';
+
+  @override
+  String get adRewardSuccess => 'Banner skriven 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Nema dostupnog oglasa.';
 }

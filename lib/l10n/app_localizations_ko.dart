@@ -283,4 +283,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get errorTryAgain => '다시 시도';
+
+  @override
+  String get adRewardButton => '광고 보기';
+
+  @override
+  String get adRewardSuccess => '배너 24시간 숨김.';
+
+  @override
+  String get adRewardNotAvailable => '광고 없음.';
 }

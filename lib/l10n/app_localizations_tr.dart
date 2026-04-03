@@ -290,4 +290,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Tekrar dene';
+
+  @override
+  String get adRewardButton => 'Reklam izle';
+
+  @override
+  String get adRewardSuccess => 'Afiş 24 saat gizlendi.';
+
+  @override
+  String get adRewardNotAvailable => 'Reklam mevcut değil.';
 }

@@ -91,5 +91,8 @@
   "pdfPage": "Strona",
   "pdfOf": "z",
   "errorGeneral": "Coś poszło nie tak.",
-  "errorTryAgain": "Spróbuj ponownie"
+  "errorTryAgain": "Spróbuj ponownie",
+  "adRewardButton": "Obejrzyj reklamę",
+  "adRewardSuccess": "Baner ukryty na 24 godz.",
+  "adRewardNotAvailable": "Brak dostępnej reklamy."
 }

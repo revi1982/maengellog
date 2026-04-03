@@ -289,4 +289,13 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Încercați din nou';
+
+  @override
+  String get adRewardButton => 'Vizionează reclama';
+
+  @override
+  String get adRewardSuccess => 'Banner ascuns 24 h.';
+
+  @override
+  String get adRewardNotAvailable => 'Nicio reclamă disponibilă.';
 }

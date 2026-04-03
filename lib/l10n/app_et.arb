@@ -107,5 +107,8 @@
   "pdfOf": "/",
 
   "errorGeneral": "Midagi läks valesti.",
-  "errorTryAgain": "Proovi uuesti"
+  "errorTryAgain": "Proovi uuesti",
+  "adRewardButton": "Vaata reklaami",
+  "adRewardSuccess": "Banner peidetud 24 tunniks.",
+  "adRewardNotAvailable": "Reklaami pole saadaval."
 }

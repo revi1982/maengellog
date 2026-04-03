@@ -290,4 +290,13 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Försök igen';
+
+  @override
+  String get adRewardButton => 'Se annons';
+
+  @override
+  String get adRewardSuccess => 'Banner dold i 24 t.';
+
+  @override
+  String get adRewardNotAvailable => 'Ingen annons tillgänglig.';
 }

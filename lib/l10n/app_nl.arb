@@ -91,5 +91,8 @@
   "pdfPage": "Pagina",
   "pdfOf": "van",
   "errorGeneral": "Er is iets misgegaan.",
-  "errorTryAgain": "Opnieuw proberen"
+  "errorTryAgain": "Opnieuw proberen",
+  "adRewardButton": "Advertentie bekijken",
+  "adRewardSuccess": "Banner 24 uur verborgen.",
+  "adRewardNotAvailable": "Geen advertentie beschikbaar."
 }

@@ -107,5 +107,8 @@
   "pdfOf": "von",
 
   "errorGeneral": "Etwas ist schiefgelaufen.",
-  "errorTryAgain": "Erneut versuchen"
+  "errorTryAgain": "Erneut versuchen",
+  "adRewardButton": "Werbung ansehen",
+  "adRewardSuccess": "Banner 24h ausgeblendet.",
+  "adRewardNotAvailable": "Keine Werbung verfügbar."
 }

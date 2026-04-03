@@ -288,4 +288,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Спробувати знову';
+
+  @override
+  String get adRewardButton => 'Переглянути рекламу';
+
+  @override
+  String get adRewardSuccess => 'Банер прихований на 24 год.';
+
+  @override
+  String get adRewardNotAvailable => 'Реклама недоступна.';
 }

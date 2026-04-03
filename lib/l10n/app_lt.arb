@@ -107,5 +107,8 @@
   "pdfOf": "iš",
 
   "errorGeneral": "Kažkas nepavyko.",
-  "errorTryAgain": "Bandyti dar kartą"
+  "errorTryAgain": "Bandyti dar kartą",
+  "adRewardButton": "Žiūrėti reklamą",
+  "adRewardSuccess": "Reklamjuostė paslėpta 24 val.",
+  "adRewardNotAvailable": "Nėra galimos reklamos."
 }

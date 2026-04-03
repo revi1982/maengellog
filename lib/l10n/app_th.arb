@@ -91,5 +91,8 @@
   "pdfPage": "หน้า",
   "pdfOf": "จาก",
   "errorGeneral": "เกิดข้อผิดพลาด",
-  "errorTryAgain": "ลองอีกครั้ง"
+  "errorTryAgain": "ลองอีกครั้ง",
+  "adRewardButton": "ดูโฆษณา",
+  "adRewardSuccess": "ซ่อนแบนเนอร์ 24 ชม.",
+  "adRewardNotAvailable": "ไม่มีโฆษณา"
 }

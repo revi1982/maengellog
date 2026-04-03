@@ -290,4 +290,13 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Опитайте отново';
+
+  @override
+  String get adRewardButton => 'Гледай реклама';
+
+  @override
+  String get adRewardSuccess => 'Банерът е скрит за 24 ч.';
+
+  @override
+  String get adRewardNotAvailable => 'Няма налична реклама.';
 }

@@ -286,4 +286,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'ลองอีกครั้ง';
+
+  @override
+  String get adRewardButton => 'ดูโฆษณา';
+
+  @override
+  String get adRewardSuccess => 'ซ่อนแบนเนอร์ 24 ชม.';
+
+  @override
+  String get adRewardNotAvailable => 'ไม่มีโฆษณา';
 }

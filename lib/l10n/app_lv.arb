@@ -107,5 +107,8 @@
   "pdfOf": "no",
 
   "errorGeneral": "Kaut kas nogāja greizi.",
-  "errorTryAgain": "Mēģināt vēlreiz"
+  "errorTryAgain": "Mēģināt vēlreiz",
+  "adRewardButton": "Skatīties reklāmu",
+  "adRewardSuccess": "Baneris paslēpts 24 h.",
+  "adRewardNotAvailable": "Nav pieejamas reklāmas."
 }

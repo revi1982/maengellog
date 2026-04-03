@@ -289,4 +289,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Proovi uuesti';
+
+  @override
+  String get adRewardButton => 'Vaata reklaami';
+
+  @override
+  String get adRewardSuccess => 'Banner peidetud 24 tunniks.';
+
+  @override
+  String get adRewardNotAvailable => 'Reklaami pole saadaval.';
 }

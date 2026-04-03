@@ -290,4 +290,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'Spróbuj ponownie';
+
+  @override
+  String get adRewardButton => 'Obejrzyj reklamę';
+
+  @override
+  String get adRewardSuccess => 'Baner ukryty na 24 godz.';
+
+  @override
+  String get adRewardNotAvailable => 'Brak dostępnej reklamy.';
 }

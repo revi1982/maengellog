@@ -287,4 +287,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorTryAgain => 'حاول مرة أخرى';
+
+  @override
+  String get adRewardButton => 'مشاهدة الإعلان';
+
+  @override
+  String get adRewardSuccess => 'تم إخفاء البانر لمدة 24 ساعة.';
+
+  @override
+  String get adRewardNotAvailable => 'لا يوجد إعلان متاح.';
 }

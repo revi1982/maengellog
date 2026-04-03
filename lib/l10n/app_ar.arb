@@ -91,5 +91,8 @@
   "pdfPage": "صفحة",
   "pdfOf": "من",
   "errorGeneral": "حدث خطأ",
-  "errorTryAgain": "حاول مرة أخرى"
+  "errorTryAgain": "حاول مرة أخرى",
+  "adRewardButton": "مشاهدة الإعلان",
+  "adRewardSuccess": "تم إخفاء البانر لمدة 24 ساعة.",
+  "adRewardNotAvailable": "لا يوجد إعلان متاح."
 }
