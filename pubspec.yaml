@@ -1,0 +1,39 @@
+name: maengellog
+description: "Kaution sichern: Fotos, Maengel & Zeitstempel. 100% offline, kein Abo."
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  sqflite: ^2.3.2
+  path: ^1.9.0
+  path_provider: ^2.1.1
+  pdf: ^3.10.8
+  printing: ^5.12.0
+  in_app_purchase: ^3.1.13
+  google_mobile_ads: ^4.0.0
+  webview_flutter: ^4.7.0
+  google_fonts: ^6.2.1
+  intl: ^0.20.2
+  shared_preferences: ^2.2.2
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  flutter_local_notifications: ^17.2.3
+  share_plus: ^9.0.0
+  package_info_plus: ^8.1.1
+  timezone: ^0.9.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  generate: true
