@@ -102,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(),
             _HBtn(icon: Icons.download_outlined, onTap: () async {
               if (!BillingService.instance.isPremium) {
-                await AdService.showInterstitial();
                 if (context.mounted) {
                   await Navigator.push(context,
                       MaterialPageRoute(builder: (_) => const PaywallScreen()));

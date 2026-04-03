@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import '../../core/config/app_config.dart';
 import '../../core/services/billing_service.dart';
 import '../../l10n/app_localizations.dart';
-import '../legal/legal_screen.dart';
+import '../legal/legal_text_screen.dart';
 import '../paywall/paywall_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
-  void _openLegal(BuildContext context, String title, String url) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => LegalScreen(title: title, url: url)));
+  void _openLegal(
+    BuildContext context,
+    String title,
+    List<LegalSection> sections,
+  ) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => LegalTextScreen(title: title, sections: sections),
+      ),
+    );
   }
 
   @override
@@ -47,17 +54,29 @@ class SettingsScreen extends StatelessWidget {
             _Tile(
               icon: Icons.info_outline,
               label: l.settingsImpressum,
-              onTap: () => _openLegal(context, l.settingsImpressum, AppConfig.impressumUrl),
+              onTap: () => _openLegal(
+                context,
+                l.settingsImpressum,
+                LegalContent.impressum,
+              ),
             ),
             _Tile(
               icon: Icons.privacy_tip_outlined,
               label: l.settingsDatenschutz,
-              onTap: () => _openLegal(context, l.settingsDatenschutz, AppConfig.datenschutzUrl),
+              onTap: () => _openLegal(
+                context,
+                l.settingsDatenschutz,
+                LegalContent.datenschutz,
+              ),
             ),
             _Tile(
               icon: Icons.gavel_outlined,
               label: l.settingsAgb,
-              onTap: () => _openLegal(context, l.settingsAgb, AppConfig.agbUrl),
+              onTap: () => _openLegal(
+                context,
+                l.settingsAgb,
+                LegalContent.agb,
+              ),
             ),
           ]),
           const SizedBox(height: 16),

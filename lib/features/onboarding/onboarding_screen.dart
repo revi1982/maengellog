@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/config/app_config.dart';
 import '../../l10n/app_localizations.dart';
+import '../home/home_screen.dart';
 import '../legal/legal_screen.dart';
-// HomeScreen-Import kommt in Prompt 5 — hier noch NICHT
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -31,17 +31,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('onboarding_done', true);
     if (!mounted) return;
-    // Stub-Navigation — Prompt 5 ersetzt dies durch HomeScreen
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) => const Scaffold(
-          backgroundColor: Color(0xFFF4F5FA),
-          body: Center(
-            child: Text('Home wird in Prompt 5 gebaut',
-                style: TextStyle(color: Color(0xFF9090A8))),
-          ),
-        ),
-      ),
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
     );
   }
 
