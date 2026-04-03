@@ -8,8 +8,8 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'core/theme/app_theme.dart';
 import 'core/config/app_config.dart';
 
+import 'l10n/app_localizations.dart';
 // Diese Imports werden in späteren Prompts einkommentiert:
-// import 'l10n/app_localizations.dart';                    // Prompt 2
 // import 'features/onboarding/onboarding_screen.dart';     // Prompt 4
 // import 'features/home/home_screen.dart';                 // Prompt 5
 // import 'core/services/ad_service.dart';                  // Prompt 5
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
       localizationsDelegates: const [
-        // AppLocalizations.delegate, // Prompt 2: einkommentieren
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
