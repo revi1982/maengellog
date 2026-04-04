@@ -179,6 +179,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsRestore => 'Restaurar compra';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Desbloqueio único';
 
   @override

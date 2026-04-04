@@ -11,13 +11,13 @@ import '../entry/entry_list_screen.dart';
 import '../paywall/paywall_screen.dart';
 import '../settings/settings_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class MaengelLogHomeScreen extends StatefulWidget {
+  const MaengelLogHomeScreen({super.key});
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MaengelLogHomeScreen> createState() => _MaengelLogHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MaengelLogHomeScreenState extends State<MaengelLogHomeScreen> {
   BannerAd? _banner;
   int    _total      = 0;
   int    _week       = 0;
@@ -91,10 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      useSafeArea: true,
       backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
-      builder: (_) => EntryFormScreen(onSaved: () {
+      builder: (_) => MaengelLogEntryFormScreen(onSaved: () {
         Navigator.pop(context);
         _loadStats().then((_) {
           if (!mounted) return;
@@ -120,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final accent  = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(child: Column(children: [
 
         // ── HEADER ─────────────────────────────────────────────────────────
@@ -147,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (!BillingService.instance.isPremium) {
                 if (context.mounted) {
                   await Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const PaywallScreen()));
+                      MaterialPageRoute(builder: (_) => const MaengelLogPaywallScreen()));
                 }
                 return;
               }
@@ -157,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(width: 8),
             _HBtn(icon: Icons.settings_outlined, onTap: () =>
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const SettingsScreen()))),
+                    MaterialPageRoute(builder: (_) => const MaengelLogSettingsScreen()))),
           ]),
         ),
 
@@ -230,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
 
         // ── ENTRY LIST ─────────────────────────────────────────────────────
-        Expanded(child: EntryListScreen(
+        Expanded(child: MaengelLogEntryListScreen(
           key: ValueKey(_listRefKey), onRefresh: _loadStats)),
       ])),
 

@@ -177,6 +177,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get settingsRestore => 'Aankoop herstellen';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Eenmalig ontgrendelen';
 
   @override

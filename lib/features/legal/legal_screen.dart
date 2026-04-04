@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class LegalScreen extends StatefulWidget {
+class MaengelLogLegalScreen extends StatefulWidget {
   final String title;
   final String url;
-  const LegalScreen({super.key, required this.title, required this.url});
+  const MaengelLogLegalScreen({super.key, required this.title, required this.url});
 
   @override
-  State<LegalScreen> createState() => _LegalScreenState();
+  State<MaengelLogLegalScreen> createState() => _MaengelLogLegalScreenState();
 }
 
-class _LegalScreenState extends State<LegalScreen> {
+class _MaengelLogLegalScreenState extends State<MaengelLogLegalScreen> {
   late final WebViewController _controller;
   bool _isLoading = true;
 
@@ -29,6 +29,7 @@ class _LegalScreenState extends State<LegalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(widget.title,
             style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),

@@ -3,21 +3,21 @@ import '../../core/services/legal_service.dart';
 
 export '../../core/services/legal_service.dart' show LegalSection;
 
-class LegalTextScreen extends StatefulWidget {
+class MaengelLogLegalTextScreen extends StatefulWidget {
   final String title;
   final String legalKey; // 'impressum' | 'datenschutz' | 'agb'
 
-  const LegalTextScreen({
+  const MaengelLogLegalTextScreen({
     super.key,
     required this.title,
     required this.legalKey,
   });
 
   @override
-  State<LegalTextScreen> createState() => _LegalTextScreenState();
+  State<MaengelLogLegalTextScreen> createState() => _MaengelLogLegalTextScreenState();
 }
 
-class _LegalTextScreenState extends State<LegalTextScreen> {
+class _MaengelLogLegalTextScreenState extends State<MaengelLogLegalTextScreen> {
   List<LegalSection>? _sections;
   bool _error = false;
 
@@ -41,6 +41,7 @@ class _LegalTextScreenState extends State<LegalTextScreen> {
     final primary = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFFF4F5FB),
       appBar: AppBar(
         title: Text(widget.title),

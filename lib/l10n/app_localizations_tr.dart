@@ -178,6 +178,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get settingsRestore => 'Satın almayı geri yükle';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Tek seferlik satın al';
 
   @override

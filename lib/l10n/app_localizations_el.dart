@@ -179,6 +179,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get settingsRestore => 'Επαναφορά αγοράς';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Ξεκλείδωμα μία φορά';
 
   @override

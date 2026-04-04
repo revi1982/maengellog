@@ -5,13 +5,13 @@ import '../../l10n/app_localizations.dart';
 import '../home/home_screen.dart';
 import '../legal/legal_screen.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class MaengelLogOnboardingScreen extends StatefulWidget {
+  const MaengelLogOnboardingScreen({super.key});
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<MaengelLogOnboardingScreen> createState() => _MaengelLogOnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _MaengelLogOnboardingScreenState extends State<MaengelLogOnboardingScreen> {
   final _ctrl = PageController();
   int  _page  = 0;
   bool _dsgvoAccepted = false;
@@ -32,7 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     await prefs.setBool('onboarding_done', true);
     if (!mounted) return;
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
+      MaterialPageRoute(builder: (_) => const MaengelLogHomeScreen()),
     );
   }
 
@@ -45,6 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final primary = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFFF4F5FA),
       body: SafeArea(
         child: Column(children: [
@@ -64,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onChanged: (v) => setState(() => _dsgvoAccepted = v ?? false),
                   onLinkTap: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => LegalScreen(
+                    MaterialPageRoute(builder: (_) => MaengelLogLegalScreen(
                       title: l.onboardingPrivacyTitle,
                       url: AppConfig.datenschutzUrl,
                     )),

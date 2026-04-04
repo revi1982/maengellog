@@ -93,6 +93,6 @@
   "errorGeneral": "Something went wrong.",
   "errorTryAgain": "Try again",
   "adRewardButton": "Watch ad",
-  "adRewardSuccess": "Banner hidden for 24h.",
+  "adRewardSuccess": "Banner hidden for 2h.",
   "adRewardNotAvailable": "No ad available."
 }

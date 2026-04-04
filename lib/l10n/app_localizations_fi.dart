@@ -179,6 +179,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get settingsRestore => 'Palauta ostos';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Avaa kerran';
 
   @override

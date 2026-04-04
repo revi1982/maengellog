@@ -177,6 +177,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsRestore => 'खरीदारी पुनर्स्थापित करें';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'एक बार खरीदें — हमेशा के लिए';
 
   @override

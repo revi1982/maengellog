@@ -179,6 +179,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get settingsRestore => 'Atjaunot pirkumu';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Atbloķēt vienreiz';
 
   @override

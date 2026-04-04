@@ -178,6 +178,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get settingsRestore => 'Obnovit nákup';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Odemknout jednou';
 
   @override

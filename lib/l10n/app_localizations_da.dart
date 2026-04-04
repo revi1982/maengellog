@@ -178,6 +178,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get settingsRestore => 'Gendan køb';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Lås op én gang';
 
   @override

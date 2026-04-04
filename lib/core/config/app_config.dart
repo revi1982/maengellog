@@ -16,6 +16,7 @@ class AppConfig {
   static const admobRewardedInterstitialId = 'ca-app-pub-3940256099942544/5354046379';
   static const admobAppOpenId              = 'ca-app-pub-3940256099942544/9257395921';
   static const admobNativeId               = 'ca-app-pub-3940256099942544/2247696110';
+  static const admobInterstitialId         = 'ca-app-pub-3940256099942544/1033173712';
   static const String impressumUrl        = 'https://reivi.de/impressum?app=true';
   static const String datenschutzUrl      = 'https://reivi.de/datenschutz?app=true';
   static const String agbUrl              = 'https://reivi.de/agb?app=true';

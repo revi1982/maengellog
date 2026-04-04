@@ -177,6 +177,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsRestore => '恢复购买';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => '一次购买，永久使用';
 
   @override

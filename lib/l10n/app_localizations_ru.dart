@@ -177,6 +177,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settingsRestore => 'Восстановить покупку';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Разблокировать однажды — навсегда';
 
   @override

@@ -178,6 +178,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsRestore => 'Kauf wiederherstellen';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Einmalig freischalten';
 
   @override
@@ -296,7 +299,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get adRewardButton => 'Werbung ansehen';
 
   @override
-  String get adRewardSuccess => 'Banner 24h ausgeblendet.';
+  String get adRewardSuccess => 'Banner 2h ausgeblendet.';
 
   @override
   String get adRewardNotAvailable => 'Keine Werbung verfügbar.';

@@ -6,18 +6,19 @@ import '../../core/services/ad_service.dart';
 import '../../l10n/app_localizations.dart';
 import 'entry_detail_screen.dart';
 
-class EntryListScreen extends StatefulWidget {
+class MaengelLogEntryListScreen extends StatefulWidget {
   final VoidCallback? onRefresh;
-  const EntryListScreen({super.key, this.onRefresh});
+  const MaengelLogEntryListScreen({super.key, this.onRefresh});
 
   @override
-  State<EntryListScreen> createState() => _EntryListScreenState();
+  State<MaengelLogEntryListScreen> createState() => _MaengelLogEntryListScreenState();
 }
 
-class _EntryListScreenState extends State<EntryListScreen> {
+class _MaengelLogEntryListScreenState extends State<MaengelLogEntryListScreen> {
   List<Map<String, dynamic>> _entries = [];
   NativeAd? _nativeAd;
   bool      _nativeAdLoaded = false;
+  int       _detailViewCount = 0;
 
   @override
   void initState() { super.initState(); _load(); _loadNativeAd(); }
@@ -150,9 +151,13 @@ class _EntryListScreenState extends State<EntryListScreen> {
                   final deleted = await Navigator.push<bool>(
                     context,
                     MaterialPageRoute(
-                        builder: (_) => EntryDetailScreen(entry: e)),
+                        builder: (_) => MaengelLogEntryDetailScreen(entry: e)),
                   );
                   if (deleted == true) { _load(); widget.onRefresh?.call(); }
+                  _detailViewCount++;
+                  if (_detailViewCount % 3 == 0 && !AdService.isPremium) {
+                    AdService.showInterstitialIfAvailable();
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),

@@ -17,6 +17,7 @@ class AdService {
   static RewardedInterstitialAd? _rewardedInterstitial;
   static AppOpenAd?              _appOpenAd;
   static bool                    _appOpenShowing = false;
+  static InterstitialAd?         _interstitial;
 
   // ── Premium ────────────────────────────────────────────────────────────────
   static Future<void> initPremiumStatus() async {
@@ -201,5 +202,38 @@ class AdService {
       },
     );
     _appOpenAd!.show();
+  }
+
+  // ── Interstitial ───────────────────────────────────────────────────────────
+  static Future<void> loadInterstitial() async {
+    if (_isPremium) return;
+    await InterstitialAd.load(
+      adUnitId: AppConfig.admobInterstitialId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded:       (ad) => _interstitial = ad,
+        onAdFailedToLoad: (err) {
+          _interstitial = null;
+          debugPrint('Interstitial failed: $err');
+        },
+      ),
+    );
+  }
+
+  static bool get isInterstitialReady => _interstitial != null;
+
+  static void showInterstitialIfAvailable() {
+    if (_isPremium || _interstitial == null) return;
+    _interstitial!.fullScreenContentCallback = FullScreenContentCallback(
+      onAdDismissedFullScreenContent: (ad) {
+        ad.dispose(); _interstitial = null;
+        loadInterstitial();
+      },
+      onAdFailedToShowFullScreenContent: (ad, _) {
+        ad.dispose(); _interstitial = null;
+      },
+    );
+    _interstitial!.show();
+    _interstitial = null;
   }
 }

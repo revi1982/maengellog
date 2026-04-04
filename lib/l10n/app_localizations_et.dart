@@ -177,6 +177,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get settingsRestore => 'Taasta ost';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Ava ühe korra';
 
   @override

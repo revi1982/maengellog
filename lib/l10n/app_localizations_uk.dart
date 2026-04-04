@@ -177,6 +177,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get settingsRestore => 'Відновити покупку';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Одна покупка — назавжди';
 
   @override

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../../core/services/billing_service.dart';
 import '../../l10n/app_localizations.dart';
 
-class PaywallScreen extends StatefulWidget {
-  const PaywallScreen({super.key});
+class MaengelLogPaywallScreen extends StatefulWidget {
+  const MaengelLogPaywallScreen({super.key});
   @override
-  State<PaywallScreen> createState() => _PaywallScreenState();
+  State<MaengelLogPaywallScreen> createState() => _MaengelLogPaywallScreenState();
 }
 
-class _PaywallScreenState extends State<PaywallScreen> {
+class _MaengelLogPaywallScreenState extends State<MaengelLogPaywallScreen> {
   bool _buying = false;
   bool _restoring = false;
 
@@ -53,6 +53,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
     final price = BillingService.instance.product?.price;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFFF4F5FA),
       appBar: AppBar(
         leading: IconButton(

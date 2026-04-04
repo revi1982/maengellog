@@ -37,17 +37,17 @@ Future<void> main() async {
   final prefs          = await SharedPreferences.getInstance();
   final onboardingDone = prefs.getBool('onboarding_done') ?? false;
 
-  runApp(MyApp(onboardingDone: onboardingDone));
+  runApp(MaengelLogApp(onboardingDone: onboardingDone));
 }
 
-class MyApp extends StatefulWidget {
+class MaengelLogApp extends StatefulWidget {
   final bool onboardingDone;
-  const MyApp({super.key, required this.onboardingDone});
+  const MaengelLogApp({super.key, required this.onboardingDone});
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MaengelLogApp> createState() => _MaengelLogAppState();
 }
 
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+class _MaengelLogAppState extends State<MaengelLogApp> with WidgetsBindingObserver {
   bool _firstResume = true;
 
   @override
@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     if (widget.onboardingDone && !AdService.isPremium) {
       AdService.loadAppOpen();
       AdService.loadRewardedInterstitial();
+      AdService.loadInterstitial();
     }
   }
 
@@ -95,7 +96,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         Locale('uk'), Locale('ar'), Locale('zh'), Locale('ja'), Locale('ko'),
         Locale('hi'), Locale('id'), Locale('th'),
       ],
-      home: widget.onboardingDone ? const HomeScreen() : const OnboardingScreen(),
+      home: widget.onboardingDone ? const MaengelLogHomeScreen() : const MaengelLogOnboardingScreen(),
     );
   }
 }

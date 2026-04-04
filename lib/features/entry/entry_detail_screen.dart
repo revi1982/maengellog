@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../../core/database/database_helper.dart';
 import '../../l10n/app_localizations.dart';
 
-class EntryDetailScreen extends StatelessWidget {
+class MaengelLogEntryDetailScreen extends StatelessWidget {
   final Map<String, dynamic> entry;
-  const EntryDetailScreen({super.key, required this.entry});
+  const MaengelLogEntryDetailScreen({super.key, required this.entry});
 
   static const _hidden = {'id', 'photo_path', 'updated_at'};
 
@@ -18,6 +18,7 @@ class EntryDetailScreen extends StatelessWidget {
         .toList();
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(l.sectionDetails,
             style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),

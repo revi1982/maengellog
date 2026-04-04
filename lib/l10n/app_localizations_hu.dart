@@ -179,6 +179,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get settingsRestore => 'Vásárlás visszaállítása';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Egyszeri feloldás';
 
   @override

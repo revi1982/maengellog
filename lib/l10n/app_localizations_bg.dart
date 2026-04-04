@@ -178,6 +178,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get settingsRestore => 'Възстанови покупката';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Отключи веднъж';
 
   @override

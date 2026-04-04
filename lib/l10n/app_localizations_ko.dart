@@ -177,6 +177,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsRestore => '구매 복원';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => '한 번 구매, 평생 사용';
 
   @override

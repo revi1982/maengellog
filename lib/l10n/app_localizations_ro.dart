@@ -177,6 +177,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get settingsRestore => 'Restaurează achiziția';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Deblochează o dată';
 
   @override

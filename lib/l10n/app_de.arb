@@ -66,6 +66,7 @@
   "settingsVersion": "Version",
   "settingsPurchase": "Lifetime freischalten",
   "settingsRestore": "Kauf wiederherstellen",
+  "settingsRepeatOnboarding": "App-Einführung wiederholen",
 
   "paywallTitle": "Einmalig freischalten",
   "paywallSubtitle": "PDF-Export + Alle Werbung weg",
@@ -109,6 +110,6 @@
   "errorGeneral": "Etwas ist schiefgelaufen.",
   "errorTryAgain": "Erneut versuchen",
   "adRewardButton": "Werbung ansehen",
-  "adRewardSuccess": "Banner 24h ausgeblendet.",
+  "adRewardSuccess": "Banner 2h ausgeblendet.",
   "adRewardNotAvailable": "Keine Werbung verfügbar."
 }

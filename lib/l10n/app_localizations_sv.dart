@@ -178,6 +178,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get settingsRestore => 'Återställ köp';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Lås upp en gång';
 
   @override

@@ -178,6 +178,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get settingsRestore => 'Obnoviť nákup';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Odomknúť raz';
 
   @override

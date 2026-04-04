@@ -177,6 +177,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get settingsRestore => 'Vrati kupnju';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Otključaj jednom';
 
   @override

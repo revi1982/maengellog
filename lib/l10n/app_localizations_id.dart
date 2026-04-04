@@ -177,6 +177,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get settingsRestore => 'Pulihkan Pembelian';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Beli Sekali — Pakai Selamanya';
 
   @override

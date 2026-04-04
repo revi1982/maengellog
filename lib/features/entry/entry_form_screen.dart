@@ -3,24 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../core/database/database_helper.dart';
+import '../../core/services/maengellog_gps_service.dart';
+import '../../core/services/maengellog_torch_service.dart';
 import '../../l10n/app_localizations.dart';
 
-class EntryFormScreen extends StatefulWidget {
+class MaengelLogEntryFormScreen extends StatefulWidget {
   final VoidCallback             onSaved;
   final Map<String, dynamic>?    existingEntry;
-  const EntryFormScreen({super.key, required this.onSaved, this.existingEntry});
+  const MaengelLogEntryFormScreen({super.key, required this.onSaved, this.existingEntry});
 
   @override
-  State<EntryFormScreen> createState() => _EntryFormScreenState();
+  State<MaengelLogEntryFormScreen> createState() => _MaengelLogEntryFormScreenState();
 }
 
-class _EntryFormScreenState extends State<EntryFormScreen> {
+class _MaengelLogEntryFormScreenState extends State<MaengelLogEntryFormScreen> {
   final _descCtrl     = TextEditingController();
   final _locationCtrl = TextEditingController();
   final _witnessCtrl  = TextEditingController();
   final _notesCtrl    = TextEditingController();
   String? _photoPath;
   bool    _saving = false;
+  bool    _torchOn = false;
+  double? _latitude;
+  double? _longitude;
 
   @override
   void initState() {
@@ -32,11 +37,31 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       _witnessCtrl.text  = (e['witnesses']    as String?) ?? '';
       _notesCtrl.text    = (e['notes']        as String?) ?? '';
       _photoPath         = e['photo_path']    as String?;
+      _latitude          = e['latitude']      as double?;
+      _longitude         = e['longitude']     as double?;
+    } else {
+      _captureGps();
     }
+  }
+
+  Future<void> _captureGps() async {
+    final pos = await MaengelLogGpsService.getCurrentPosition();
+    if (pos != null && mounted) {
+      setState(() {
+        _latitude = pos.latitude;
+        _longitude = pos.longitude;
+      });
+    }
+  }
+
+  Future<void> _toggleTorch() async {
+    await MaengelLogTorchService.toggle();
+    if (mounted) setState(() => _torchOn = MaengelLogTorchService.isOn);
   }
 
   @override
   void dispose() {
+    MaengelLogTorchService.turnOff();
     _descCtrl.dispose(); _locationCtrl.dispose();
     _witnessCtrl.dispose(); _notesCtrl.dispose();
     super.dispose();
@@ -60,6 +85,8 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       'witnesses':       _witnessCtrl.text.trim(),
       'notes':           _notesCtrl.text.trim(),
       'photo_path':      _photoPath,
+      'latitude':        _latitude,
+      'longitude':       _longitude,
       'entry_timestamp': DateTime.now().toIso8601String(),
     };
     if (widget.existingEntry != null) {
@@ -108,33 +135,56 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
 
           _FieldLabel(l.fieldPhoto, primary),
           const SizedBox(height: 6),
-          GestureDetector(
-            onTap: _pickPhoto,
-            child: Container(
-              height: _photoPath != null ? 160 : 56,
-              decoration: BoxDecoration(
-                color: const Color(0xFFF0F1F8),
-                borderRadius: BorderRadius.circular(14),
-                border: _photoPath == null
-                    ? Border.all(color: const Color(0xFFE0E0ED))
-                    : null,
+          Row(children: [
+            Expanded(
+              child: GestureDetector(
+                onTap: _pickPhoto,
+                child: Container(
+                  height: _photoPath != null ? 160 : 56,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF0F1F8),
+                    borderRadius: BorderRadius.circular(14),
+                    border: _photoPath == null
+                        ? Border.all(color: const Color(0xFFE0E0ED))
+                        : null,
+                  ),
+                  child: _photoPath != null
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Image.file(
+                            File(_photoPath!),
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                          Icon(Icons.camera_alt_outlined, color: primary, size: 20),
+                          const SizedBox(width: 8),
+                          Text(l.fieldPhoto,
+                              style: TextStyle(color: primary, fontWeight: FontWeight.w600)),
+                        ]),
+                ),
               ),
-              child: _photoPath != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
-                      child: Image.file(
-                        File(_photoPath!),
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                  : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Icon(Icons.camera_alt_outlined, color: primary, size: 20),
-                      const SizedBox(width: 8),
-                      Text(l.fieldPhoto,
-                          style: TextStyle(color: primary, fontWeight: FontWeight.w600)),
-                    ]),
             ),
-          ),
+            const SizedBox(width: 8),
+            GestureDetector(
+              onTap: _toggleTorch,
+              child: Container(
+                width: 56, height: 56,
+                decoration: BoxDecoration(
+                  color: _torchOn ? primary : const Color(0xFFF0F1F8),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(
+                    color: _torchOn ? primary : const Color(0xFFE0E0ED),
+                  ),
+                ),
+                child: Icon(
+                  _torchOn ? Icons.flashlight_on : Icons.flashlight_off_outlined,
+                  color: _torchOn ? Colors.white : primary,
+                  size: 22,
+                ),
+              ),
+            ),
+          ]),
           const SizedBox(height: 16),
 
           _FieldLabel(l.fieldLocation, primary),

@@ -178,6 +178,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get settingsRestore => 'Atkurti pirkimą';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Atrakinti vieną kartą';
 
   @override

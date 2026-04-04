@@ -177,6 +177,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsRestore => 'استعادة الشراء';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'ادفع مرة واحدة — استخدم للأبد';
 
   @override

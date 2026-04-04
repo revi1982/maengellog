@@ -177,6 +177,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get settingsRestore => 'กู้คืนการซื้อ';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'ซื้อครั้งเดียว ใช้ตลอดไป';
 
   @override

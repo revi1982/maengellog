@@ -496,6 +496,12 @@ abstract class AppLocalizations {
   /// **'Kauf wiederherstellen'**
   String get settingsRestore;
 
+  /// No description provided for @settingsRepeatOnboarding.
+  ///
+  /// In de, this message translates to:
+  /// **'App-Einführung wiederholen'**
+  String get settingsRepeatOnboarding;
+
   /// No description provided for @paywallTitle.
   ///
   /// In de, this message translates to:
@@ -721,7 +727,7 @@ abstract class AppLocalizations {
   /// No description provided for @adRewardSuccess.
   ///
   /// In de, this message translates to:
-  /// **'Banner 24h ausgeblendet.'**
+  /// **'Banner 2h ausgeblendet.'**
   String get adRewardSuccess;
 
   /// No description provided for @adRewardNotAvailable.

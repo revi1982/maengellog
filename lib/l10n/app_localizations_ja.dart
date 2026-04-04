@@ -177,6 +177,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsRestore => '購入を復元';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => '一度の購入で永久利用';
 
   @override

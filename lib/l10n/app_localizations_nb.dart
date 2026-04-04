@@ -179,6 +179,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get settingsRestore => 'Gjenopprett kjøp';
 
   @override
+  String get settingsRepeatOnboarding => 'App-Einführung wiederholen';
+
+  @override
   String get paywallTitle => 'Lås opp én gang';
 
   @override

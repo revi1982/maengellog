@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/services/billing_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../legal/legal_text_screen.dart';
+import '../onboarding/onboarding_screen.dart';
 import '../paywall/paywall_screen.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class MaengelLogSettingsScreen extends StatelessWidget {
+  const MaengelLogSettingsScreen({super.key});
 
   void _openLegal(BuildContext context, String title, String legalKey) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => LegalTextScreen(title: title, legalKey: legalKey),
+        builder: (_) => MaengelLogLegalTextScreen(title: title, legalKey: legalKey),
       ),
     );
   }
@@ -23,6 +25,7 @@ class SettingsScreen extends StatelessWidget {
     final primary = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(l.settingsTitle,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
@@ -36,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
               iconColor: primary,
               label: l.settingsPurchase,
               onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => const PaywallScreen())),
+                  MaterialPageRoute(builder: (_) => const MaengelLogPaywallScreen())),
             ),
             _Tile(
               icon: Icons.restore,
@@ -62,6 +65,23 @@ class SettingsScreen extends StatelessWidget {
               icon: Icons.gavel_outlined,
               label: l.settingsAgb,
               onTap: () => _openLegal(context, l.settingsAgb, 'agb'),
+            ),
+          ]),
+          const SizedBox(height: 16),
+          _Section(title: l.navSettings, children: [
+            _Tile(
+              icon: Icons.replay_outlined,
+              label: l.settingsRepeatOnboarding,
+              onTap: () async {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('onboarding_done', false);
+                if (context.mounted) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (_) => const MaengelLogOnboardingScreen()),
+                    (route) => false,
+                  );
+                }
+              },
             ),
           ]),
           const SizedBox(height: 16),
